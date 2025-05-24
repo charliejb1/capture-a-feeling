@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/form.css">
 </head>
+
 <body>
-    
 
+    <form id="dream-form">
+        <h2>It all starts with a feeling</h2>
+        <div id="idea-name">
+            <div class="form-section">
+                <label for="name-input">Idea Name:</label>
+                <input id="name-input" type="text" placeholder="Enter idea name" />
+            </div>
 
-<script src="./js/form.js"></script>
+            <div class="form-section">
+                <label for="meaning-input">Meaning:</label>
+                <input id="meaning-input" type="text" placeholder="Enter meaning" />
+            </div>
+
+            <div class="form-section">
+                <label for="mood-input">Mood:</label>
+                <input id="mood-input" type="text" placeholder="Enter mood" />
+            </div>
+
+            <div class="form-section">
+                <div>
+                    <label for="structure-input">Part 1:</label>
+                    <input type="checkbox" class="verse-input">
+                    <label for="verse-input"> Verse</label><br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <label for="vehicle2"> I have a car</label><br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3"> I have a boat</label>
+                </div>
+            </div>
+
+            
+
+            <div class="form-section">
+                <label for="instrument-input">Instrument Ideas:</label>
+                <input id="instrument-input" type="text" placeholder="Enter meaning" />
+            </div>
+
+            <div class="form-section">
+                <label for="prominence-input">Instrument Prominence:</label>
+                <input id="prominence-input" type="text" placeholder="Enter instrument prominence" />
+            </div>
+
+            <div class="form-section">
+                <label for="imagery-input">Imagery Ideas:</label>
+                <input id="imagery-input" type="text" placeholder="Enter imagery you felt" />
+            </div>
+
+            <div>
+                Audio Input
+            </div>
+
+            <div>
+                <button id="submit-button" type="submit">Submit</button>
+            </div>
+
+    </form>
+
+    <script src="./js/form.js"></script>
 </body>
+
 </html>
