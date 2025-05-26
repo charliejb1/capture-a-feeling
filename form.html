@@ -11,6 +11,7 @@
 <body>
 
     <form id="dream-form">
+
         <h2>It all starts with a feeling</h2>
         <div id="idea-name">
             <div class="form-section">
@@ -28,19 +29,43 @@
                 <input id="mood-input" type="text" placeholder="Enter mood" />
             </div>
 
-            <div class="form-section">
-                <div>
-                    <label for="structure-input">Part 1:</label>
+            <div id = checkbox-container>
+                <div class="song-section">
+
+                    <label>Section:</label><br>
+                    <input type="checkbox" class="intro-input">
+                    <label for="intro-input-1">intro</label><br>
+
+                    <input type="checkbox" class="pre-verse-input">
+                    <label for="pre-verse-input-1"> pre-verse</label><br>
+
                     <input type="checkbox" class="verse-input">
-                    <label for="verse-input"> Verse</label><br>
-                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                    <label for="vehicle2"> I have a car</label><br>
-                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                    <label for="vehicle3"> I have a boat</label>
+                    <label for="verse-input-1">verse</label><br>
+
+                    <input type="checkbox" class="pre-chorus-input">
+                    <label for="pre-chorus-input-1">pre-chorus</label><br>
+
+                    <input type="checkbox" class="chorus-input">
+                    <label for="chorus-input-1">chorus</label><br>
+
+                    <input type="checkbox" class="bridge-input">
+                    <label for="bridge-input-1">bridge</label><br>
+
+                    <input type="checkbox" class="interlude-input">
+                    <label for="interlude-input-1">interlude</label><br>
+
+                    <input type="checkbox" class="outro-input">
+                    <label for="outro-input-1">outro</label><br>
+                </div>
+
+                <div id="new-div">
+
                 </div>
             </div>
 
-            
+            <div>
+                <button id="section-btn" type="button">Add Section</button>
+            </div>
 
             <div class="form-section">
                 <label for="instrument-input">Instrument Ideas:</label>
