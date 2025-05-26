@@ -1,9 +1,12 @@
 const checkboxContainer = document.getElementById('checkbox-container')
 const sectionButton = document.getElementById('section-btn')
-const clearButton = document.getElementById('clear-btn')
+const clearButton = document.getElementById('clear-btn-sections')
 const newDiv = document.getElementsByClassName('song-section');
+const instrumentContainer = document.getElementById('instrument-container')
+const instrumentButton = document.getElementById('instrument-btn')
+const clearInstruments = document.getElementById('clear-btn-instruments')
 
-
+// function for creating new song sections with options
 function sectionFunction() {
    
     const checkboxElement = document.createElement('div');
@@ -43,6 +46,7 @@ function sectionFunction() {
  
 }
 
+// function for deleting song sections
 function clearSections() {
   const newDiv = document.getElementsByClassName('new-section');
   while (newDiv.length > 0) newDiv[0].remove();
@@ -51,3 +55,23 @@ function clearSections() {
 sectionButton.addEventListener('click', sectionFunction);
 clearButton.addEventListener('click', clearSections);
 
+// function for creating new instruments with range of prominence
+function newInstrument () {
+  const instrumentElement = document.createElement('div');
+  instrumentElement.setAttribute('class', 'new-instrument')
+
+  instrumentElement.innerHTML = `<input class="prominence-input" type="text" placeholder="Enter Instrument"><input class="range-input" type="range"/><br>`;
+
+  instrumentContainer.appendChild(instrumentElement);
+}
+
+// function for deleting new instruments with range of prominence
+function removeInstruments() {
+  const newInst = document.getElementsByClassName('new-instrument');
+  while (newInst.length > 0) newInst[0].remove();
+}
+
+instrumentButton.addEventListener('click', newInstrument);
+clearInstruments.addEventListener('click', removeInstruments)
+
+// function for setting local storage from form inputs
