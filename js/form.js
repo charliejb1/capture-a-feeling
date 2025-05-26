@@ -1,11 +1,13 @@
-const checkboxContainer = document.getElementById('new-div')
+const checkboxContainer = document.getElementById('checkbox-container')
 const sectionButton = document.getElementById('section-btn')
+const clearButton = document.getElementById('clear-btn')
+const newDiv = document.getElementsByClassName('song-section');
 
 
 function sectionFunction() {
    
     const checkboxElement = document.createElement('div');
-    checkboxElement.setAttribute('class', 'song-section')
+    checkboxElement.setAttribute('class', 'new-section')
 
 
     checkboxElement.innerHTML = `
@@ -41,5 +43,11 @@ function sectionFunction() {
  
 }
 
+function clearSections() {
+  const newDiv = document.getElementsByClassName('new-section');
+  while (newDiv.length > 0) newDiv[0].remove();
+}
+
 sectionButton.addEventListener('click', sectionFunction);
+clearButton.addEventListener('click', clearSections);
 
