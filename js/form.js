@@ -7,44 +7,52 @@ const instrumentButton = document.getElementById('instrument-btn')
 const clearInstruments = document.getElementById('clear-btn-instruments')
 
 // function for creating new song sections with options
+
+let i = 0
+
 function sectionFunction() {
-   
-    const checkboxElement = document.createElement('div');
-    checkboxElement.setAttribute('class', 'new-section')
 
+  i += 1
 
-    checkboxElement.innerHTML = `
+  const checkboxElement = document.createElement('div');
+  checkboxElement.setAttribute('class', 'new-section')
+
+ 
+
+  checkboxElement.innerHTML = `
 
                     <label>Section:</label><br>
 
-                    <input type="checkbox" class="intro-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> intro</label><br>
 
-                    <input type="checkbox" class="pre-verse-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> pre-verse</label><br>
 
-                    <input type="checkbox" class="verse-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> verse</label><br>
 
-                    <input type="checkbox" class="pre-chorus-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> pre-chorus</label><br>
 
-                    <input type="checkbox" class="chorus-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> chorus</label><br>
 
-                    <input type="checkbox" class="bridge-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> bridge</label><br>
 
-                    <input type="checkbox" class="interlude-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> interlude</label><br>
 
-                    <input type="checkbox" class="outro-input">
+                    <input type="radio" class="section-input" name="circle+${i}">
                     <label> outro</label><br>
   `;
 
-    checkboxContainer.appendChild(checkboxElement);
- 
-}
+
+  checkboxContainer.appendChild(checkboxElement);
+
+
+  }
 
 // function for deleting song sections
 function clearSections() {
@@ -56,7 +64,9 @@ sectionButton.addEventListener('click', sectionFunction);
 clearButton.addEventListener('click', clearSections);
 
 // function for creating new instruments with range of prominence
-function newInstrument () {
+
+function newInstrument() {
+  
   const instrumentElement = document.createElement('div');
   instrumentElement.setAttribute('class', 'new-instrument')
 
@@ -75,3 +85,18 @@ instrumentButton.addEventListener('click', newInstrument);
 clearInstruments.addEventListener('click', removeInstruments)
 
 // function for setting local storage from form inputs
+
+function formSubmit() {
+
+  const nameInput = document.getElementById('name-input')
+  const meaningInput = document.getElementById('meaning-input')
+  const moodInput = document.getElementById('mood-input')
+  const introInput = document.querySelectorAll('intro-input')
+
+  const formTotal = [nameInput.value, meaningInput.value, moodInput.value]
+
+  localStorage.setItem("Idea", formTotal);
+
+
+  window.location.assign('./dreams.html')
+}
