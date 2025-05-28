@@ -25,7 +25,6 @@ function sectionFunction() {
                            
   `;
 
-
   checkboxContainer.appendChild(checkboxElement);
 }
 
@@ -73,6 +72,8 @@ function formSubmit() {
   const imageryInput = document.getElementById('imagery-input')
 
   const ideaContainer = document.getElementById('idea-container')
+
+  const testContainer = document.getElementById('test')
   
   const sections = [];
   for (let j = 1; j <= i; j++) {
@@ -99,30 +100,12 @@ function formSubmit() {
   }
 
 
-  // getting from local storage
-  let inputs = JSON.parse(localStorage.getItem("idea"))
-
-  inputs.forEach(input => {
-
-    const newIdea = document.createElement('div');
-
-    newIdea.innerHTML = `
-    <h2>${input.name}<h2>
-    <h2>${input.meaning}</h2>
-    <p>${input.mood}</p>
-
-  `;
-
-    ideaContainer.appendChild(newIdea);
-  });
-
-
-  // grouping and setting text inputs as localstorage
-  const formTotal = 
+    // grouping and setting text inputs as localstorage
+    const formTotal = 
     {name: nameInput.value, 
     meaning: meaningInput.value, 
     mood: moodInput.value, 
-    instrument: instrumentInput.value, 
+    instrumentation: instrumentInput.value, 
     imagery: imageryInput.value, 
     sections: sections, 
     instruments: instruments, 
@@ -131,8 +114,77 @@ function formSubmit() {
   localStorage.setItem("Idea", JSON.stringify(formTotal));
 
 
+  // getting from local storage
+  let inputs = JSON.parse(localStorage.getItem("Idea"));
+
+  if (inputs) {
+
+    const newIdea = document.createElement('div');
+
+    newIdea.innerHTML = `
+    <h2>${inputs.name}</h2>
+    <p>Meaning: ${inputs.meaning}<p>
+    <p>Instrumentation: ${inputs.instrumentation}</p>
+    <p>Imagery: ${inputs.imagery}</p>
+    <p>Song Sections: ${inputs.sections}</p>
+    <table class="instrument-table">
+      <tr>
+        <th>Instrument</th>
+        <th>Level</th>
+      </tr>
+      <tr>
+       <td>${inputs.instruments[0]}</td>
+       <td>${inputs.ranges[0]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[1]}</td>
+       <td>${inputs.ranges[1]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[2]}</td>
+       <td>${inputs.ranges[2]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[3]}</td>
+       <td>${inputs.ranges[3]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[4]}</td>
+       <td>${inputs.ranges[4]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[5]}</td>
+       <td>${inputs.ranges[5]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[6]}</td>
+       <td>${inputs.ranges[6]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[7]}</td>
+       <td>${inputs.ranges[7]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[8]}</td>
+       <td>${inputs.ranges[8]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[9]}</td>
+       <td>${inputs.ranges[9]}</td>
+       </tr>
+       <tr>
+       <td>${inputs.instruments[10]}</td>
+       <td>${inputs.ranges[10]}</td>
+       </tr>
+     </table>
+  `;
+
+   testContainer.appendChild(newIdea);
+  };
 
 
-  window.location.assign('./ideas.html')
+
+
+  // window.location.assign('./ideas.html')
 };
 
