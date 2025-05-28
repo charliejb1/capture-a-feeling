@@ -17,42 +17,21 @@ function sectionFunction() {
   const checkboxElement = document.createElement('div');
   checkboxElement.setAttribute('class', 'new-section')
 
- 
+
 
   checkboxElement.innerHTML = `
 
                     <label>Section:</label><br>
 
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> intro</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> pre-verse</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> verse</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> pre-chorus</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> chorus</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> bridge</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> interlude</label><br>
-
-                    <input type="radio" class="section-input" name="circle+${i}">
-                    <label> outro</label><br>
+                    <input type="text" id="section-${i}" class="section-input">
+                           
   `;
 
 
   checkboxContainer.appendChild(checkboxElement);
 
 
-  }
+}
 
 // function for deleting song sections
 function clearSections() {
@@ -66,7 +45,7 @@ clearButton.addEventListener('click', clearSections);
 // function for creating new instruments with range of prominence
 
 function newInstrument() {
-  
+
   const instrumentElement = document.createElement('div');
   instrumentElement.setAttribute('class', 'new-instrument')
 
@@ -87,16 +66,29 @@ clearInstruments.addEventListener('click', removeInstruments)
 // function for setting local storage from form inputs
 
 function formSubmit() {
-
+  
+  // selecting all text inputs
   const nameInput = document.getElementById('name-input')
   const meaningInput = document.getElementById('meaning-input')
   const moodInput = document.getElementById('mood-input')
-  const introInput = document.querySelectorAll('intro-input')
+  const instrumentInput = document.getElementById('instrument-input')
+  const imageryInput = document.getElementById('imagery-input')
+  
+  const sections = [];
+  for (let j = 1; j <= i; j++) {
+    const input = document.getElementById(`section-${j}`);
+    if (input) {
+      sections.push(input.value);
+    }
+  }
 
-  const formTotal = [nameInput.value, meaningInput.value, moodInput.value]
-
+  // grouping and setting text inputs as localstorage
+  const formTotal = [nameInput.value, meaningInput.value, moodInput.value, instrumentInput.value, imageryInput.value, sections]
   localStorage.setItem("Idea", formTotal);
 
 
+
+
   window.location.assign('./dreams.html')
-}
+};
+
