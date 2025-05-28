@@ -17,8 +17,6 @@ function sectionFunction() {
   const checkboxElement = document.createElement('div');
   checkboxElement.setAttribute('class', 'new-section')
 
-
-
   checkboxElement.innerHTML = `
 
                     <label>Section:</label><br>
@@ -29,8 +27,6 @@ function sectionFunction() {
 
 
   checkboxContainer.appendChild(checkboxElement);
-
-
 }
 
 // function for deleting song sections
@@ -46,10 +42,12 @@ clearButton.addEventListener('click', clearSections);
 
 function newInstrument() {
 
+  i += 1
+
   const instrumentElement = document.createElement('div');
   instrumentElement.setAttribute('class', 'new-instrument')
 
-  instrumentElement.innerHTML = `<input class="prominence-input" type="text" placeholder="Enter Instrument"><input class="range-input" type="range"/><br>`;
+  instrumentElement.innerHTML = `<input id="instrument-${i}" class="instrument-input" type="text" placeholder="Enter Instrument"><input id="range-${i}" class="range-input" type="range" value="0" max="10" min="0" step=".5" /><br> `;
 
   instrumentContainer.appendChild(instrumentElement);
 }
@@ -73,6 +71,8 @@ function formSubmit() {
   const moodInput = document.getElementById('mood-input')
   const instrumentInput = document.getElementById('instrument-input')
   const imageryInput = document.getElementById('imagery-input')
+
+  const ideaContainer = document.getElementById('idea-container')
   
   const sections = [];
   for (let j = 1; j <= i; j++) {
@@ -82,13 +82,57 @@ function formSubmit() {
     }
   }
 
+  const ranges = [];
+  for (let r = 1; r <= i; r++) {
+    const input = document.getElementById(`range-${r}`);
+    if (input) {
+      ranges.push(input.value);
+    }
+  }
+
+  const instruments = [];
+  for (let t = 1; t <= i; t++) {
+    const input = document.getElementById(`instrument-${t}`);
+    if (input) {
+      instruments.push(input.value);
+    }
+  }
+
+
+  // getting from local storage
+  let inputs = JSON.parse(localStorage.getItem("idea"))
+
+  inputs.forEach(input => {
+
+    const newIdea = document.createElement('div');
+
+    newIdea.innerHTML = `
+    <h2>${input.name}<h2>
+    <h2>${input.meaning}</h2>
+    <p>${input.mood}</p>
+
+  `;
+
+    ideaContainer.appendChild(newIdea);
+  });
+
+
   // grouping and setting text inputs as localstorage
-  const formTotal = [nameInput.value, meaningInput.value, moodInput.value, instrumentInput.value, imageryInput.value, sections]
-  localStorage.setItem("Idea", formTotal);
+  const formTotal = 
+    {name: nameInput.value, 
+    meaning: meaningInput.value, 
+    mood: moodInput.value, 
+    instrument: instrumentInput.value, 
+    imagery: imageryInput.value, 
+    sections: sections, 
+    instruments: instruments, 
+    ranges: ranges,}
+
+  localStorage.setItem("Idea", JSON.stringify(formTotal));
 
 
 
 
-  window.location.assign('./dreams.html')
+  window.location.assign('./ideas.html')
 };
 
