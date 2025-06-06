@@ -10,57 +10,56 @@
 
 <body>
 
-    <form id="dream-form">
+    <form id="idea-form">
 
         <h2>It all starts with a feeling</h2>
-        <div id="idea-name">
-            <div class="form-section">
-                <label for="name-input">Idea Name:</label>
-                <input id="name-input" type="text" placeholder="Enter idea name" />
-            </div>
-
-            <div class="form-section">
-                <label for="meaning-input">Meaning:</label>
-                <input id="meaning-input" type="text" placeholder="Enter meaning" />
-            </div>
-
-            <div class="form-section">
-                <label for="mood-input">Mood:</label>
-                <input id="mood-input" type="text" placeholder="Enter mood" />
-            </div>
-
-            <label>Song Sections:</label>
-
-        </div>
-
-
 
         <div class="form-section">
-            <label for="instrument-input">Instrument Ideas:</label>
+            <label id="name-label" for="name-input">Idea Name:</label>
+            <input id="name-input" type="text" placeholder="Enter idea name" />
+        </div>
+
+        <div class="form-section">
+            <label id="meaning-label" for="meaning-input">Meaning:</label>
+            <input id="meaning-input" type="text" placeholder="Enter meaning" />
+        </div>
+
+        <div class="form-section">
+            <label id="mood-label" for="mood-input">Mood:</label>
+            <input id="mood-input" type="text" placeholder="Enter mood" />
+        </div>
+
+        <div class="form-section">
+            <label id="instrument-label" for="instrument-input">Instrument Ideas:</label>
             <input id="instrument-input" type="text" placeholder="Enter Instrumentation" />
         </div>
 
         <div class="form-section">
-            <label for="prominence-input">Instrument Prominence:</label><br>
-
-           
-
-        <div class="form-section">
-            <label for="imagery-input">Imagery Ideas:</label>
-            <input id="imagery-input" type="text" placeholder="Enter imagery you felt" />
+            <label id="imagery-label" for="imagery-input">Imagery Ideas:</label>
+             <input id="imagery-input" type="text" placeholder="Enter imagery you felt" />
         </div>
 
-        <div id="checkbox-container">
+        <div class="form-section">
+            <label id="section-label">Song Sections:</label><br>
+        </div>
+
+        <div id="checkbox-container"> 
 
         </div>
 
         <div>
             <button id="section-btn" type="button">Add Section</button>
-            <button id="clear-btn-sections" type="button">Clear Sections</button>
+             <button id="clear-btn-sections" type="button">Clear Sections</button>
         </div>
 
-        <div id="instrument-container"></div>
-    </div>
+        <div class="form-section">
+            <label id="prominence-label">Instrument Prominence:</label><br>
+        </div>
+
+
+            <div id="instrument-container">
+
+        </div>
 
         <div>
             <button id="instrument-btn" type="button">Add Instrument</button>
@@ -72,7 +71,7 @@
         </div>
 
         <div>
-            <button id="submit-button" type="button" onclick=formSubmit()>Submit</button>
+            <button id="submit-button" type="submit">Submit</button>
         </div>
 
     </form>

@@ -1,0 +1,25 @@
+#idea-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#name-label{
+    margin-left: -13px;
+}
+
+#mood-label{
+    margin-left: 18px;
+}
+
+#instrument-label{
+    margin-left: -51px;
+}
+
+#imagery-label{
+    margin-left: -35px;
+}
+
+
+
