@@ -1,29 +1,34 @@
 const ideaContainer = document.getElementById('idea-container')
 
+// getting from local storage
 function startFunction() {
 
-    let inputs = JSON.parse(localStorage.getItem("Idea"));
+  let inputs = JSON.parse(localStorage.getItem("Idea"));
 
-    if (inputs) {
+  if (inputs) {
 
-        let rows = '';
-        for (let i = 0; i < inputs.instruments.length; i++) {
-            rows += `
+    let rows = '';
+    for (let i = 0; i < inputs.instruments.length; i++) {
+      rows += `
     <tr>
       <td>${inputs.instruments[i]}</td>
       <td>${inputs.ranges[i]}</td>
     </tr>
   `;
-        }
+    }
 
-        const newIdea = document.createElement('div');
+    // inputs.forEach(input => {
 
-        newIdea.innerHTML = `
-  <h2>${inputs.name}</h2>
-  <p>Meaning: ${inputs.meaning}<p>
-  <p>Instrumentation: ${inputs.instrumentation}</p>
-  <p>Imagery: ${inputs.imagery}</p>
-  <p>Song Sections: ${inputs.sections}</p>
+    const newIdea = document.createElement('div');
+
+    newIdea.innerHTML = `
+  <div class="new-idea">
+    <h2>${inputs.name}</h2>
+      <p>Meaning: ${inputs.meaning}</p>
+      <p>Mood: ${inputs.mood}</p>
+      <p>Instrumentation: ${inputs.instrumentation}</p>
+      <p>Imagery: ${inputs.imagery}</p>
+      <p>Song Sections: ${inputs.sections}</p>
   <table class="instrument-table">
     <tr>
       <th>Instrument</th>
@@ -31,11 +36,12 @@ function startFunction() {
     </tr>
     ${rows}
     </table>
+  </div>
 `;
+  
 
-
-        ideaContainer.appendChild(newIdea);
-    };
+    ideaContainer.appendChild(newIdea);
+  };
 
 }
 
