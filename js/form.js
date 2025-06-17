@@ -74,7 +74,6 @@ function formSubmit(event) {
 
   const ideaContainer = document.getElementById('idea-container')
 
-  const testContainer = document.getElementById('test')
   
   const sections = [];
   for (let j = 1; j <= i; j++) {
@@ -156,7 +155,7 @@ function formSubmit(event) {
   </div>
 `;
 
-    testContainer.appendChild(newIdea);
+    ideaContainer.appendChild(newIdea);
   };
 
 }
