@@ -117,8 +117,52 @@ function formSubmit(event) {
 
 
 
-  window.location.assign('./ideas.html')
-};
+
+// getting from local storage
+
+  let inputs = JSON.parse(localStorage.getItem("Idea")||"[]");
+
+  if (inputs) {
+
+    let rows = '';
+    for (let i = 0; i < inputs.instruments.length; i++) {
+      rows += `
+    <tr>
+      <td>${inputs.instruments[i]}</td>
+      <td>${inputs.ranges[i]}</td>
+    </tr>
+  `;
+    }
+
+    // inputs.forEach(input => {
+
+    const newIdea = document.createElement('div');
+
+    newIdea.innerHTML = `
+  <div class="new-idea">
+    <h2>${inputs.name}</h2>
+      <p>Meaning: ${inputs.meaning}</p>
+      <p>Mood: ${inputs.mood}</p>
+      <p>Instrumentation: ${inputs.instrumentation}</p>
+      <p>Imagery: ${inputs.imagery}</p>
+      <p>Song Sections: ${inputs.sections}</p>
+  <table class="instrument-table">
+    <tr>
+      <th>Instrument</th>
+      <th>Level</th>
+    </tr>
+    ${rows}
+    </table>
+  </div>
+`;
+
+    testContainer.appendChild(newIdea);
+  };
+
+}
+
+
 
 const form = document.getElementById('idea-form');
 form.addEventListener('submit', formSubmit);
+
